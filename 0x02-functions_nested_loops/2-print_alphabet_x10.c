@@ -1,21 +1,26 @@
 #include "main.h"
-/**
- * main-Entrypoint
- * main.h contains functions needed for these tasks
- * Return: Always 0(Success)
- */
-int main(void)
-{
-	int alphabet_count = 0
-	{
-		char m='a';
 
-		while (m <= 'z')
+/**
+ * print_alphabet_x10 - prints the alphabets 10x
+ *
+ * Description: prints 10 times
+ * Return: Always(0).
+ */
+
+void print_alphabet_x10(void)
+{
+	int alphabet_count = 0;
+
+	while (alphabet_count < 10)
+	{
+		char ch = 'a';
+
+		while (ch <= 'z')
 		{
-			_putchar(m);
-			m++;
+			_putchar(ch);
+			ch++;
 		}
 		alphabet_count++;
-		_putchar('\n')
+		_putchar('\n');
 	}
 }
