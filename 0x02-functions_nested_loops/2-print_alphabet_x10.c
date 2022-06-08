@@ -6,7 +6,7 @@
  */
 int main(void)
 {
-	int alphabet_count = 0;
+	int alphabet_count = 0
 	{
 		char m='a';
 
