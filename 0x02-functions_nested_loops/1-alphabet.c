@@ -1,16 +1,17 @@
 #include "main.h"
 /**
- * main-Entry Point
- * main.h contains function needed to execute commands
- * Return: Always 0(Success)
- */
-int main(void)
+*print_alphabet - a function that prints the alphabet in lowercase.
+*
+*Return: Always 0.
+*/
+void print_alphabet(void)
 {
-	int x;
+	int i;
 
-	for (x='a';x <='z'; x++)
+	for (i = 'a'; i <= 'z'; i++)
+
 	{
-		_putchar(x);
+		_putchar(i);
 	}
 	_putchar('\n');
 }
