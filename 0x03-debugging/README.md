@@ -1,1 +1,1 @@
-Debuggning functions
+Debugging task
