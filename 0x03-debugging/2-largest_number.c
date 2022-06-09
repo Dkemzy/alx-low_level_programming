@@ -7,15 +7,16 @@
  * @c: third integer
  * Return: largest number
  */
+
 int main(void)
 {
 	int largest;
 	
-	if (a > b && a > c)
+	if (a >= b && a >= c)
 	{
 		largest = a;
 	}
-	if (b > a && b > c)
+	if (b >= a && b >= c)
 	{
 		largest = b;
 	}
