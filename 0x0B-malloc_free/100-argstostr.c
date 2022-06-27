@@ -1,56 +1,41 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
 /**
-* argstostr - a function that concatenates all the arguments of your program
-*@ac: count of args passed to the function
-*@av:array of arguments
-*
-*Return: pointer to the new string
-*/
+ * argstostr - concatenates all arguments of a program
+ * @ac: first parameter integer
+ * @av: second parameter pointer to a pointer
+ * Return: NULL if ac=0 or av=NULL
+ */
 
 char *argstostr(int ac, char **av)
 {
-		char *new_string = NULL;
-		int k = 0, i = ac, j, sum = 0, temp = 0;
+	int a, b, c = 0;
+	int len = 1;
+	char *str;
 
-		if (ac == 0 || av == NULL)
-			return (NULL);
-
-		while (ac--)
-			sum += (len(av[ac]) + 1);
-		new_string = (char *) malloc(sum + 1);
-
-		if (new_string != NULL)
+	if (ac == 0 || av == NULL)
+		return (NULL);
+	for (a = 0; a < ac; a++)
+	{
+		for (b = 0; av[a][b] != '\0'; b++)
+			len += 1;
+		len += 1;
+	}
+	str = malloc(sizeof(char) * len);
+	for (a = 0; a < ac; a++)
+	{
+		for (b = 0; av[a][b] != '\0'; b++)
 		{
-			while (k < i)
-			{
-				for (j = 0; av[k][j] != '\0'; j++)
-					new_string[j + temp] = av[k][j];
-				new_string[temp + j] = '\n';
-				temp += (j + 1);
-				k++;
-			}
-			new_string[temp] = '\0';
+			str[c] = av[a][b];
+			c++;
 		}
-		else
-		{
-			return (NULL);
-		}
-		return (new_string);
-}
-
-/**
-*len - returns length of str
-*@str: string counted
-*Return: returns the length
-*/
-int len(char *str)
-{
-		int len = 0;
-
-		if (str != NULL)
-		{
-			while (str[len])
-				len++;
-		}
-	return (len);
+		str[c] = '\n';
+		c++;
+	}
+	str[c] = '\0';
+	if (str != NULL)
+		return (str);
+	else
+		return (NULL);
 }
