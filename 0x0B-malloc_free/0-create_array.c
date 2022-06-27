@@ -1,37 +1,24 @@
-#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-
-
 /**
- * create_array - create an arry of size with char c
- * @size: unsigned int type
- * @c: char type
- * Return: Return pointer to array created
+ * create_array - create array
+ * @size: size
+ * @c: constant
+ * Return: char pointer
  */
-
 char *create_array(unsigned int size, char c)
 {
-	char *s;
+	char *p;
 	unsigned int i;
 
 	if (size == 0)
+	return (0);
+	p = malloc((size) * sizeof(char));
+	if (p == '\0')
+	return (0);
+	for (i = 0; i < size; i++)
 	{
-		return (NULL);
+		p[i] = c;
 	}
-
-	s = malloc((size) * sizeof(char));
-	if (s == NULL)
-	{
-		return (NULL);
-	}
-	i = 0;
-	while (i < size)
-	{
-		s[i] = c;
-		i++;
-	}
-	s[i] = '\0';
-	return (s);
+return (p);
 }
-© 2022 GitHub, Inc.
