@@ -1,85 +1,56 @@
-#include <stdlib.h>
-
+#include "main.h"
 /**
- * strtow - char
- * @str: pointer to string params
- * Return: char
- */
+* argstostr - a function that concatenates all the arguments of your program
+*@ac: count of args passed to the function
+*@av:array of arguments
+*
+*Return: pointer to the new string
+*/
 
-char **strtow(char *str)
+char *argstostr(int ac, char **av)
 {
-	int i = 0, j = 0, k = 0;
-	int len = 0, count = 0;
-	char **f, *col;
+		char *new_string = NULL;
+		int k = 0, i = ac, j, sum = 0, temp = 0;
 
-	if (!str || !*str)
-	{
-		return (NULL);
-	}
+		if (ac == 0 || av == NULL)
+			return (NULL);
 
-	while (*(str + i))
-	{
-		if (*(str + i) != ' ')
+		while (ac--)
+			sum += (len(av[ac]) + 1);
+		new_string = (char *) malloc(sum + 1);
+
+		if (new_string != NULL)
 		{
-			if (*(str + i + 1) == ' ' || *(str + i + 1) == 0)
+			while (k < i)
 			{
-				count += 1;
+				for (j = 0; av[k][j] != '\0'; j++)
+					new_string[j + temp] = av[k][j];
+				new_string[temp + j] = '\n';
+				temp += (j + 1);
+				k++;
 			}
+			new_string[temp] = '\0';
 		}
-		i++;
-	}
-
-	if (count == 0)
-	{
-		return (NULL);
-	}
-	count += 1;
-	f = malloc(sizeof(char *) * count);
-
-	if (!f)
-	{
-		return (NULL);
-	}
-	i = 0;
-
-	while (*str)
-	{
-		while (*str == ' ' && *str)
+		else
 		{
-			str++;
-		}
-		len = 0;
-
-		while (*(str + len) != ' ' && *(str + len))
-		{
-			len += 1;
-		}
-		len += 1;
-		col = malloc(sizeof(char) * len);
-
-		if (!col)
-		{
-			for (k = j - 1; k >= 0; k--)
-			{
-				free(f[k]);
-			}
-			free(f);
 			return (NULL);
 		}
+		return (new_string);
+}
 
-		for (k = 0; k < (len - 1);  k++)
+/**
+*len - returns length of str
+*@str: string counted
+*Return: returns the length
+*/
+int len(char *str)
+{
+		int len = 0;
+
+		if (str != NULL)
 		{
-			*(col + k) = *(str++);
+			while (str[len])
+				len++;
 		}
-		*(col + k) = '\0';
-		*(f + j) = col;
-
-		if (j < (count - 1))
-		{
-			j++;
-		}
-	}
-	*(f + j) = NULL;
-	return (f);
-} /*yes*/
-
+	return (len);
+}
