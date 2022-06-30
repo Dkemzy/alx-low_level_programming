@@ -157,9 +157,3 @@ exit(98);
 print_me(sum_result, len_r);
 return (0);
 }
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Securit
