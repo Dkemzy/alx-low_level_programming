@@ -1,7 +1,7 @@
 #include<stdio.h>
 
 /**
- * main_Prints the name of the function
+ * main - Prints the file name of the program
  *
  * Return: Always 0(success)
  */
