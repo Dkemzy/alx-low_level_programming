@@ -21,5 +21,3 @@ int pop_listint(listint_t **head)
 	free(tmp);
 	return (i);
 }
-Footer
-© 2022 GitHub, Inc.
