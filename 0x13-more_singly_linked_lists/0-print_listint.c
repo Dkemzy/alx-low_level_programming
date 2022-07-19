@@ -6,7 +6,7 @@
  * @h: Pointer to an int constant
  *
  * Return: The number of mine
-**/
+ */
 
 size_t print_listint(const listint_t *h)
 {
